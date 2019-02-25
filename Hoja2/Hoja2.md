@@ -79,19 +79,19 @@ ab 	€ L1
 ### 7) (cb* c + cb* b)  (cc)* + (cc)* (cb)(b+c)
 Sí son equivalentes (L20).
 ## EJERCICIO 6
-###1) 111 no subcadena.
+### 1) 111 no subcadena
 (0 + 10 + 110)*
-###2) w no tiene dos ceros consecutivos.
+### 2) w no tiene dos ceros consecutivos.
 (e + 0)(1 + 01)*
-###3) |w|0 = |w|1 y ningún prefijo de w tiene dos ceros más que unos, ni dos unos más que ceros.
+### 3) |w|0 = |w|1 y ningún prefijo de w tiene dos ceros más que unos, ni dos unos más que ceros.
 (01 + 10)*
-###4) |w|0 dibisible por 3
+### 4) |w|0 dibisible por 3
 1*000*1*
-###5) Exactamente una aparicion de 111
+### 5) Exactamente una aparicion de 111
 (0 + 10 + 110)*111(0 + 10 + 110)*
-###6) |w| impar y no acaba en cero
+### 6) |w| impar y no acaba en cero
 (1 + 01)* (e + 0)
-###7) Toda b tiene una c detrás.
+### 7) Toda b tiene una c detrás.
 (a + c)*(b + e)(c + e)(a + c)*
 ### 8) |w|a <= 3
 (b + c)*(e + a)(b + c)*(e + a)(b + c)*(e + a)(b + c)*
