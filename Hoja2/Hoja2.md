@@ -28,36 +28,36 @@ Cadenas que no contienen 1 cero solo después de un 0 suelto.
 ### 1) 01*
 inicial(q0).
 aceptacion(q1).
-q0 -> q1 : 0
-q1 -> q1 : 1
+(q0,0) = q1
+(q1,1) = q1
 ### 2) (0 + 1)01
 inicial(q0).
 aceptacin(q3).
-q0 -> q1 : 0,1
-q1 -> q2 : 0
-q2 -> q3 : 1
+(q0,0|1) = q1
+(q1,0) = q2
+(q2,1) = q3
 ### 3) 00(0+1)*
 inicial(q0).
 aceptacion(q2).
-q0 -> q1 : 0
-q1 -> q2 : 0
-q2 -> q2 : 0,1
+(q0,0) = q1
+(q1,0) = q2
+(q2,-) = q2
 ## Ejercicio 4
 ### 1) ER
 (a + b)* a(a+b) 
 ### 2) AFN
 inicial(q0).
 aceptacion(q2).
-q0 -> q0 : a,b
-q0 -> q1 : a
-q1 -> q2 : a,b
+(q0,-) = q0
+(q0,a) = q1
+(q1,-) = q2
 ### 3) AFD
 inicial(q0).
 aceptacion(q3).
-q0 -> q2 : a
-q0 -> q1 : b
-q1 -> q0 : a
-q2 -> q3 : a,b
+(q0,a) = q2
+(q0,b) = q1
+(q1,a) = q0
+(q2,-) = q3
 ## Ejercicio 5
 ### 1) (0 + 1)* 		0* + 1*
 No son equivalentes.
@@ -79,7 +79,7 @@ ab 	€ L1
 ### 7) (cb* c + cb* b)  (cc)* + (cc)* (cb)(b+c)
 Sí son equivalentes (L20).
 ## EJERCICIO 6
-### 1) 111 no subcadena
+### 1) 111 no subcadena.
 (0 + 10 + 110)*
 ### 2) w no tiene dos ceros consecutivos.
 (e + 0)(1 + 01)*
