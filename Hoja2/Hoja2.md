@@ -4,7 +4,7 @@
 ### 1) Cadebas {a,b,c} con al menos 1 a y 1 b.
 ((a + b + c)* a(a + b + c)* + ((a + b + c)* b(a + b + c)* ))
 ### 2) Cadenas {0,1} cuyo 4º símbolo por la DCH es un 1.
-(0 + 1)1(0+1)(0+1)(0+1)
+(0 + 1)* 1(0+1)(0+1)(0+1)
 ### 3) Cadenas {0,1} con a lo sumo una pareja de unos consecutivos.
 0*(e + 1)(e + 1)(0 + 01)*
 ### 4) Cadenas {0,1} cada pareja de ceros aparece antes que cualquier pareja de unos.
