@@ -3,7 +3,7 @@
 ### 1) |w| impar
 inicial(q0).
 
-aceptacion(q1).
+aceptación(q1).
 
 (q0,-) = q1
 
@@ -11,7 +11,7 @@ aceptacion(q1).
 ### 2) w acaba en 12
 inicial(q0).
 
-aceptacion(q2).
+aceptación(q2).
 
 (q0,1) = q1
 
@@ -27,7 +27,7 @@ aceptacion(q2).
 ### 3) 1212 no subcadena.
 inicial(q0).
 
-aceptacion(q0,q1,q2,q3).
+aceptación(q0,q1,q2,q3).
 
 (q0,1) = q1
 (q0,2) = q0
@@ -45,7 +45,7 @@ aceptacion(q0,q1,q2,q3).
 ### 4) 1212 subcadena w
 inicial(q0).
 
-aceptacion(q4).
+aceptación(q4).
 
 (q0,1) = q1
 (q0,2) = q2
@@ -64,7 +64,7 @@ aceptacion(q4).
 ### 5) |w|0 par y |w|1 par 
 inicial(q0).
 
-aceptacion(q0,q1,q2).
+aceptación(q0,q1,q2).
 
 (q0,0) = q1
 (q0,1) = q2
@@ -80,7 +80,7 @@ aceptacion(q0,q1,q2).
 ### 6) cada 1 en w está precedido y seguido por 2.
 inicial(q0).
 
-aceptacion(q0).
+aceptación(q0).
 
 (q0,1) = q1
 (q0,2) = q2
@@ -95,7 +95,7 @@ aceptacion(q0).
 ### 7) 11 ni 22 subcadenas
 inicial(q0).
 
-aceptacion(q0,q1,q2).
+aceptación(q0,q1,q2).
 
 (q0,1) = q1
 (q0,2) = q2
@@ -110,7 +110,7 @@ aceptacion(q0,q1,q2).
 ### 8) ni 12 ni 21 subcadenas
 inicial(q0).
 
-aceptacion(q0,q1,q2).
+aceptación(q0,q1,q2).
 
 (q0,1) = q2
 (q0,2) = q1
@@ -125,7 +125,7 @@ aceptacion(q0,q1,q2).
 ### 9) |w| mod 5 != 0
 inicial(q0).
 
-aceptacion(q1,q2,q3,q4).
+aceptación(q1,q2,q3,q4).
 
 (q0,-) = q1
 
@@ -139,7 +139,7 @@ aceptacion(q1,q2,q3,q4).
 ## Ejercicio 2
 inicial(A).
 
-aceptacion(A,B).
+aceptación(A,B).
 
 (A,0) = B
 
@@ -174,7 +174,7 @@ Reconoce a todas las cadenas que no contienen tres ceros consecutivos y el mismo
 ### 1) 4º símb. por la DCH es 1.
 inicial(q0).
 
-aceptacion(q4).
+aceptación(q4).
 
 (q0,-) = q0 
 
@@ -188,7 +188,7 @@ aceptacion(q4).
 ### 2) w = z1azaz2 siendo z,z1,z2 € {a,b}* y |z| = 4i para algun i >= 0
 inicial(q0).
 
-aceptacion(q5).
+aceptación(q5).
 
 (q0,-) = q0
 
@@ -208,7 +208,7 @@ aceptacion(q5).
 ### 3) |w| >= 5 y |sufix(w)| = 5 y empieza por a
 inicial(q0).
 
-aceptacion(q5).
+aceptación(q5).
 
 (q0,-) = q0
 
@@ -224,7 +224,7 @@ aceptacion(q5).
 ### 4) {ab}* {ba} *
 inicial(q0).
 
-aceptacion(q0,q2).
+aceptación(q0,q2).
 
 (q0,a) = q1
 
@@ -240,7 +240,7 @@ aceptacion(q0,q2).
 ### 5) prefijo ba o bba
 inicial(q0).
 
-aceptacion(q3).
+aceptación(q3).
 
 (q0,b) = q1
 
@@ -259,7 +259,7 @@ PEREZOTE
 ### a)
 inicial(q0).
 
-aceptacion(q1,q2,q5,q,q8,q9).
+aceptación(q1,q2,q5,q,q8,q9).
 
 estados:
 
@@ -326,7 +326,7 @@ transiciones:
 
 inicial(q0).
 
-aceptacion(q3,q4,q7,q8,q9).
+aceptación(q3,q4,q7,q8,q9).
 
 estados:
 
@@ -391,7 +391,7 @@ transiciones:
 ## Ejercicio 7
 inicial(q0).
 
-aceptacion().
+aceptación().
 
 estados:
 
@@ -453,7 +453,7 @@ q8 : {r,q,s}
 ### 1) a*b*c*
 inicial(q0).
 
-aceptacion(q2).
+aceptación(q2).
 
 (q0,a) = q0
 
@@ -468,7 +468,7 @@ aceptacion(q2).
 ### 2) (01)* + (010)*
 inicial(q0).
 
-aceptacion(q2,q3).
+aceptación(q2,q3).
 
 (q0,0) = q0
 
@@ -482,7 +482,7 @@ aceptacion(q2,q3).
 ### 3) Una de las cuatro últimas posiciones es 1.
 iniical(q0).
 
-aceptacion(q6).
+aceptación(q6).
 
 (q0,-) = q0
 
@@ -507,7 +507,7 @@ aceptacion(q6).
 ### 5) prefijo ba o bba
 inicial(q0).
 
-aceptacion(q3).
+aceptación(q3).
 
 (q0,b) = q1.
 
@@ -524,7 +524,7 @@ aceptacion(q3).
 ### e-AFN -> AFN
 inicial(p).
 
-aceptacion(r).
+aceptación(r).
 
 (p,a) = {p}
 (p,b) = {q,p}
@@ -541,7 +541,7 @@ aceptacion(r).
 ### AFN -> AFD
 inicial(q0).
 
-aceptacion(q2,).
+aceptación(q2,).
 
 estados:
 q0 : {p}.
