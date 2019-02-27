@@ -11,13 +11,13 @@
 (0 + 01 + 0011)*
 
 ## Ejercicio 2 
-### 1) (1 + e)(00*1)*0*
+### 1) (1 + e)(00* 1)* 0*
 Lenguajes que no contienen más de 1 uno consecutivo.
-### 2) (0*1*)*000(0+1)*
+### 2) (0*1*)* 000(0+1)*
 Lenguajes que contienen tres ceros.
 ### 3) (1 + 10)*
 Lenguajes que no contienen 2 ceros consecutivos.
-### 4) (1 + 01 + 001)*(e + 0 + 00)
+### 4) (1 + 01 + 001)* (e + 0 + 00)
 Lenguajes que no contienen más de dos ceros consecutivos.
 ### 5) (0 + 1)* 011
 Cadenas que acaban por 011.
@@ -89,20 +89,23 @@ No son equivalentes.
 0010 € L1
 	!€ L2
 ### 2) 0(120)* 12		01(201)* 2
-Sí son equivalentes.
+Sí son equivalentes (L12)
 ### 3) (0* 1* )*     	(0* 1)*
-Sí son equivalentes.
+No son equivalentes.
+	011 € (0* 1*)*
+	   !€ (0* 1*)*
 ### 4) (01 + 0)* 0		0(10 + 0)*
-Sí son equivalentes (L20 equivalencia).
+Sí son equivalentes (L21 equivalencia).
 ### 5) (a + b)*   		a* (ba* )*
-Sí son equivalentes (L20 equivalencia). 
+Sí son equivalentes (L14 equivalencia). 
 
 ### 6) b* a* + a* b*    a* + b*
 No son equivalentes.
-ab 	€ L1
-   !€ L2
+ba 	€ L1
+       !€ L2
 ### 7) (cb* c + cb* b)  (cc)* + (cc)* (cb)(b+c)
 Sí son equivalentes (L20).
+(c + ε)(cc)* ≡ c*.
 ## EJERCICIO 6
 ### 1) 111 no subcadena.
 (0 + 10 + 110)*
