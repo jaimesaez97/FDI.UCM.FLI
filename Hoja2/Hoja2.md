@@ -92,8 +92,9 @@ No son equivalentes.
 Sí son equivalentes (L12)
 ### 3) (0* 1* )*     	(0* 1)*
 No son equivalentes.
-	011 € (0* 1*)*
-	   !€ (0* 1*)*
+
+011 € (0* 1*)*
+   !€ (0* 1*)*
 ### 4) (01 + 0)* 0		0(10 + 0)*
 Sí son equivalentes (L21 equivalencia).
 ### 5) (a + b)*   		a* (ba* )*
@@ -101,10 +102,13 @@ Sí son equivalentes (L14 equivalencia).
 
 ### 6) b* a* + a* b*    a* + b*
 No son equivalentes.
-ba 	€ L1
-       !€ L2
+
+ba € L1
+	
+  !€ L2
 ### 7) (cb* c + cb* b)  (cc)* + (cc)* (cb)(b+c)
 Sí son equivalentes (L20).
+
 (c + ε)(cc)* ≡ c*.
 ## EJERCICIO 6
 ### 1) 111 no subcadena.
@@ -114,7 +118,7 @@ Sí son equivalentes (L20).
 ### 3) |w|0 = |w|1 y ningún prefijo de w tiene dos ceros más que unos, ni dos unos más que ceros.
 (01 + 10)*
 ### 4) |w|0 dibisible por 3
-1*000*1*
+1* 000* 1*
 ### 5) Exactamente una aparicion de 111
 (0 + 10 + 110)*111(0 + 10 + 110)*
 ### 6) |w| impar y no acaba en cero
