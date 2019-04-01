@@ -2,7 +2,7 @@
 
 ## Ejercicio 1
 ### $\sigma = {a,b}
-### L = { w € \sigma | |w|a % 2 == 0}
+### L = { w € $\sigma$ | |w|a % 2 == 0}
 abbbbbbbba
 S -> bS | aA | $\epsilon 
 A -> a | Ba
