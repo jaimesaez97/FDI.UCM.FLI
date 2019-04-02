@@ -1,0 +1,74 @@
+FLI - ABR2012
+
+1.a
+No existe cierre de Kleene para el vacío, porque es un lenguaje no un símbolo.
+2.a
+3.a
+aba € L
+    € Lb
+    € Lc
+    !€ La
+4.c
+011 € L
+   !€ La
+   !€ Lb
+    € Lc
+5.b
+11       € L
+10000001 € L
+6.c
+7.a
+Ejemplo clave de LIC.
+8.c?
+9.c
+Ya que la unión es cerrada para REG.
+10.a
+q0 == q1
+q3 nunca alcanzado
+11.c
+En el AFD sí, en el resto no al poder haber transiciones no marcadas.
+12.a
+Al ser la concatenación y la intersección cerradas para REG.
+13.b
+ab € L
+    S => AB => aAB => aB => ab
+abab !€ L
+    S => AB => aAB => a*b 
+    No hay manera de escribir dos Bs.
+14.a
+L(M) = b* + ab*ab*
+L(a) = ab*ab*
+15.b
+ba € L3 !€ L2 !€ L1 -> L3 != (L1,L2)
+16.b?
+L1 = (a+b)*a
+L2 = (b*aa*)*
+bab € L1 !€ L2 => L1 > L2
+17.c
+ambos acaban en a
+ambos empiezan en b/a
+L1 no tiene 2 as consecutivas
+L2 no tiene 2 bs consecutivas
+(e + a)(ab)*a
+18.c?
+¿?¿? Yo cuento 6 -> 5 estados y uno trampa.
+->q0: empiezo
+q1: he leido una b
+q2: he leido una a (NO ACEPTO CADENA ya que i>0)
+q3: he leido dos as
+*q4: he leido 3 as
+q5: estado trampa NECESARIO
+19.a
+L(A) = aa*
+L(B) = baa*
+L(G) = (aa*baa*)(aa*baa*)*
+aabaab  € L(G)
+aaaaba !€ L(G)
+aabbaa !€ L(G)
+20.c
+L(G) = L(abab + baba)*
+abba € La 
+    !€ L(G) : opcion A descartada
+ababbabaabab € L(G)
+    S => aB => ababS => ababbA => ababbabaS => ababbabaaB => ababbabaababS => ababbabaabab
+            !€ Lb

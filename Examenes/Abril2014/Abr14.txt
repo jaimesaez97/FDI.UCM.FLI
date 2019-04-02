@@ -1,0 +1,93 @@
+ABRIL2015
+
+1.b
+L= {w € {0,1}* | w empieza por a o algun prefijo de w cumple |w|a > |w|b}
+ab  € L' (prefijo a con |w|a > |w|b)
+ab !€ L
+No puede ser L' = L.
+Tampoco es L' = {a,b}* porque b !€ L'
+2.b
+\epsilon € L(((abc)*ab)*)
+        !€ La  => La descartado.
+c        € Lc
+        !€ L(((abc)*ab)*) => Lc descartado.
+3.c
+El lema de bombeo nos permite saber si un lenguaje es regular o no,
+no si es finito.
+4.c
+No es difícil darse cuenta que describen el mismo lenguaje, ya que por
+concatenación en S1 puedes derivar de igual manera (con un paso más),
+y esta es la única diferencia de términos entre ambas producciones.
+    S1 => S1S1 => S1S1S1
+    S2 => S2S2S2 
+Además, al ser \epsilon un caracter de S2, podemos "quitarnos" ese 
+último término.
+    S1 => S1S1
+    S2 => S2S2S2 => S2S2\epsilon => S2S2
+5.b
+Por definición de un €-AFN con q estados, equivale a al menos un 
+AFD con no más de 2^(q) estados.
+6.¿?¿?
+La = (10 + 01)*
+Lb = (0+1)*
+Lc = (0 + 10)
+L(S) describe a las palabras que 0s y 1s que acaban en cuanto sale un 0 
+el mismo número de ceros que unos consecutivos al final.
+    S => 1S => 11S => 11S0 : en cuanto introducimos un 0 no se pueden
+    poner más símbolos a la izquierda.
+    S => 1S => 10S1 =>     : aquí tampoco.
+    S=> 1S => 10S1 => 100S1 => 1001S1 => 1001S1
+    Tres opciones:
+        El primer 0 es el último.
+        No hay ceros.
+        A partir de salir un cero, 
+    
+    S => S0 => S0
+    11010    € Lb
+        !€ L(S) => Lb descartada
+7.a
+Lab = {a(^n)b(^n) | n € N }
+Complementario(Lab) = {a(^i)b(^j) | i,j € N, i != j}
+    En este caso no hay caso límite ya que n no puede ser 0,
+    que es la palabra que dificulta.
+8.a
+El complementario del vacío es el lenguaje: \sigma* 
+El cierre de Kleene del vacío no existe.
+Por lo que no son iguales.
+9.¿?¿?
+10.b
+Vemos que todas las derivaciones de la gramática acaban en que
+el número de aes es el doble que de bes (presente en todos los
+términos de la proyección S)
+S => SS => aaSbbSaa => aaaaSbbbbSaaaa => aaaabSaabbbbbSaaaaaa => aaaabaabbbbbaaaaaa
+11.a
+12.c?
+Por descarte.
+13.a
+La transición δ(p, a, z0) = {(p, \epsilon)} SÓLO permite consumir
+una A y no el resto, ya que estamos vaciando la pila.
+    Este autómata reconoce por estado final el lenguaje L(a).
+La transición δ(p, \epsilon, z0) = {(q, z0)} nos indica que si 
+se nos acaba la cadena con Z0 en la pila (no hemos consumido aes)
+cambiamos de estado.
+La transición δ(q, b, z0) = {(q, \epsilon)} indica que, al llegar
+a q, se puede consumir ÚNICAMENTE una b y vaciar la pila.
+Luego el autómata:
+    Por pila vacía reconoce el lenguaje L(a + b). => a)
+    Por estado final reconoce el lenguaje L(a).
+14.c
+Es una pregunta trampa. La clave está en darse cuenta que depende
+del diccionario del autómata.
+Si E = {a}, el AFD mínimo tiene 1 estado.
+Por el contrario, si |E| > 1, tenemos que tener un estado TRAMPA.
+    => c)
+15.c
+(\epsilon + aa)(\epsilon + aa)* : describe al lenguaje (aa)*.
+    Nos podría confundir que salga en formato cierre de Kleene 
+    positivo, pero en ambos paréntesis podemos escoger \epsilon.
+((ab + b) + (b + ab)) : aquí también hay trampa.
+    La trampa es visual ya que parece que bb pertenece a esta expresión,
+    pero en realidad ((ab + b) + (b + ab)) = (ab + b)
+    Si fuese (ab + b)(ab + b), si reconocería (ab + b)^2 (ESTO NO SE PUEDE HACER)
+Luego la reducción es (aa)*(ab + b) => c)
+16.

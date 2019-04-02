@@ -1,0 +1,76 @@
+ABRIL2015
+
+1.c
+a   € La ^ !€ L(S)
+(a + b)^(2n) => NO ES UNA EXPRESIÓN REGULAR
+2.a
+00111       € Lb ^ !€ L
+10110111    € L ^ !€ Lc
+3.a
+No existen propiedades para lenguajes "no regulares" (hay
+que definirlo como LIC, LNIC...).
+4.a?
+Lb se puede representar introdicendo no-determinismo en el
+autómata: cada vez que sale un símbolo que además es el que
+está en la cabeza de la pila hay dos opciones:
+    -Apilarlo y seguir buscando la mitad.
+    -Desapilarlo y pasar al estado desapilar (si coincide).
+Lc también se puede representar.
+5.c
+La es una ER válida y siempre puede ser representada por un AF.
+Lb se puede convertir en ER: L(11*00*) y por lo tanto igual.
+Lc no se puede representar (no hay manera de calcular la cadena
+inversa con un AF).
+6.a
+L(B) = (bb*c + €)
+cB = c(bb*c + €)
+L(S) =  (€ + a + c) + c(bb*c + €) (€ + c)
+aaacbbcccc
+    S => aS => aaSc => aaaScc => 
+        en este punto, tengo que generar en S la cadena cbbcc 
+        S => cB => cbBc => cbbBcc => cbbcc 
+7.c
+L  = cadenas que solo contienen aes inmediatamente antes que bes.
+L1 = cadenas que contienen la subcadena aa
+L2 = cadenas que acaban en a
+L1 U L2 = cadenas que contienen dos aes consecutivas y acaban en a.
+comp(L) = cadenas que contienen dos aes consecutivas y cadenas que acaban en a.
+comp(L) = L1 U L2
+8.¿?¿?
+110     € La ^ !€ L(M)
+1101    € L(M) ^ !€ Lb
+010100  € Lc ^ !€ L(M)
+9.a
+Aquí la trampa se encuentra en que no hay relación entre el nº aes y bes en
+L1, por lo que si es regular.
+Evidentemente, L2 no lo es.
+10.c
+Sí, ambos lenguajes son iguales.
+Si el primer símbolo coincide con el último, podemos afirmar que w = xyx(^R) 
+para x = primer símbolo(w) e y toda la cadena menos primer y último símbolo.
+
+Si w € L1 -> w € L2
+si w € L2 -> w € L1
+    ya que el primer símbolo de una cadena y el último de su inversa SIEMPRE coinciden.
+11.b
+Vamos a descartar opciones.
+La no puede ser:
+    E => bE => b\epsilon !€ La
+Lc no puede ser:
+    E => bE => bbE => bb\epsilon !€ Lc
+Podemos darnos cuenta de que no existe ninguna manera de que podamos generar
+cadenas con un número impar de aes.
+12.b
+Para reconocer n caracteres distintos necesitamos n+1 estados, ya que en el
+estado inicial no hemos reconocido ninguno.
+Además, como nos piden AFD, debemos tener 1 estado más para el estado trampa, 
+ya que una cadena por ejemplo abab no puede ser aceptada.
+13.¿?¿?
+14.c
+Estas transiciones no pueden afectar al determinismo del autómata.
+Es decir, si yo en un estado no tengo ninguna transición descrita para 
+cuando la cima de la pila es Zo (da igual el caracter a consumir de w),
+puedo generar una transición vacía \epsilon,Z0/_ porque cuando esto 
+ocurra el autómata sigue siendo determinista (solo puede efectuar esa
+transición).
+15.¿?¿?¿?¿?¿?¿??
