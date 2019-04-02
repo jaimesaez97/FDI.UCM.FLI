@@ -1,0 +1,107 @@
+MAYO2013
+
+1.c
+La no puede ser, ya que con L(G) no puede generar cadenas con 
+un solo caracter.
+a       € La ^ !€ L(G)
+Vamos a ver si es Lb o ninguna de las dos.
+    -Una vez ha entrado en "A", guarda cuantas bes ha escrito y 
+    escribe exactamente las mismas aes.
+    -Una vez ha entrado en "B", guarda cuantas aes ha escrito y
+    escribe exactamente las mismas bes.
+aa      € Lb ^ !€ L(G)
+2.b
+Dado un €-AFN con q = |Q| estados, siempre podemos encontrar un AFD
+con <= 2(^q) estados equivalente.
+3.c
+Trampa: si el diccionario es unitario, tiene 1 estado.
+        si no lo es, necesitamos otro estado trampa (AFD).
+4.c
+No podemos asegurar nada ya que no tiene dos derivaciones a la izq ni
+a la dcha ni dos árboles de derivación.
+5.b?
+L(a*b*)\Lab = {a(^i)b(^i) | i € N } que no es regular.
+comp(Lab) = {a(^i)b(^i) | i > 1} # Si i == 0 no sirve.
+Lab U comp(Lab) = {a,b} - \epsilon
+6.c
+Solo existe una transición para consumir una a, ya que a la que 
+consumo la 1ª se vacía la pila (ninguna transición para top() = empty).
+Entonces, es imposible que el autómata reconozca la cadena ya que 
+nunca llega a consumir todos sus símbolos.
+7.b
+Es asociativa:
+    ab . ab . bc = abab . bc
+                 = ab . abbc
+Pero no conmutativa:
+    ab . ba  != ba . ab  
+8.b
+(\epsilon + aa)(\epsilon + aa)* : trampa -> está dado en formato 
+cierre de Kleene positivo pero podemos darnos cuenta de que en 
+ambos parentesis podemos coger \epsilon.
+    => (aa)*
+((ab + b) + (ab +b)) : trampa -> es una unión de ambos términos y
+no una concatenación
+    => (ab + b)
+(aa)*(b + ab)
+9.b
+L(A) = \epsilon
+L(B) = (b + \epsilon)
+L(S) = ((\epsilon + a)a(b +\epsilon) + b)
+La no puede ser ya que G es finita.
+aaaaaaaaa   € La
+           !€ L(G)
+Lc no puede ser ya que le faltan cadenas.
+b           € L(G)
+           !€ Lc
+Por descarte es Lb, pero vamos a confirmarlo.
+S => aB => a
+S => aB => abA => ab
+S => aaB => aa
+S => aaB => aabA => aab
+S => AB => bA => b
+S => AB => \epsilon\epsilon
+10. a
+El lenguaje que contiene a todas las cadenas es regular, y {a(^n)b(^n)| n >= 0} no.
+Al ser segundo subconjunto del primero, a) es falsa.
+La operación complementaria es cerrada para los lenguajes regulares => Lc no.
+11.c
+"Si la GIC es ambigua, PODRÁN generarse distintos árboles de derivación"
+                    => PODRÁN generarse lenguajes ambiguos.
+12.c
+No puede ser a porque a cualquier AFD A equivalente a AFN B podemos añadirle un estado más inaccesible desde el inicial <- no dice que sea mínimo.
+No puede ser la b porque existen autómatas que si cumplen (autómata transparencias).
+13.c
+Sí, pero no pueden afectar al determinismo del autómata.
+14.b
+Tiene que tener cuatro estados.
+>*q0: se reconocen las aes.
+*q1: se reconocen las bes.
+*q2: se reconocen las ces
+q3: estado trampa.
+15.c
+Si M es un AFD, q0 € F porque no hay transiciones vacías y
+son las únicas 2 maneras de reconocer la cadena \epsilon.
+Si M es un AFN, igual.
+Si M es un \epsilon-AFN, puede existir una transición nvacía
+desde q0 hasta un estado de aceptación marcado por símbolo \epsilon.
+16.a
+M no puede ser un AFD mínimo si tiene más de un estado y todos
+son de aceptación, ya que si no existe estado trampa todas las 
+cadenas se reconocen y se puede tener en un mismo estado.
+17.b
+Un autómata con pila determinista sería el más sencillo.
+18.c
+L = {a(^p) | p primo} es un lenguaje con alfabeto unitario e 
+independiente del contexto => no es necesariamente REG.
+L = L(a*) es un lenguaje regular => no es necesariamente LIC.
+19.b
+L(G) = (01 + 10)(01 + 10)
+La: Evidentemente, el número de ceros es igual al de unos pero
+no sirve esto porque \epsilon !€ L(G).
+Lc: No puede ser, ya que 0101 € L(G) ^ !€ Lc
+20.c
+La cadena a no nos vale ya que |uv| <= n y poniendo u = aaa 
+tendremos x = aaa(v^i)b(^n)c(^n) que pertenece para cualquier i.
+La cadena c no nos vale porque no depende de N y no garantiza
+que vayamos a escoger x : |x| > N.
+La opción c si nos vale ya que los uv = aaab^(n-3) y|v| >= 1.
