@@ -1,0 +1,22 @@
+Dudas Hoja 5 FL
+EJ.4
+    a)Ls€(M) no reconoce ningún lenguaje, ¿verdad? No se vacía nunca la pila
+    b)
+    c)
+EJ.5
+    ¿Cómo sería el APD?
+EJ.6
+    a) ¿Es este?
+(q0,a,Z0) = (q1,AZ0)
+(q0,b,Z0) = (q3,BZ0)
+(q1,a,X)  = (q1,AX)
+(q1,b,A)  = (q1,€)
+(q1,b,Z0) = (q1,bZ0)
+(q2,b,X)  = (q2,BX)
+(q2,a,B)  = (q2,€)
+(q2,a,Z0) = (q1,AZ0)
+    
+    b) ¿Cómo COÑO es este? ¿Bastaría con añadir dos transiciones en q2(E.F) 
+        (q2,€,A)  = (q2,€)
+        (q2,€,Zo) = (q2,€)
+    c) ¿Cómo es este? ¿El que he dado en apartado A es determinista, ¿vale??
