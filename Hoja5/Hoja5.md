@@ -136,3 +136,95 @@ L = {x ∈ {a, b}∗| x = xR}
 (q1,1,1)  = (q1,€)
 (q1,€,Z0) = (q1,€)
 Final State q1
+
+## Ejercicio 9
+
+### 9.1. {0^n1^n | n € N}
+(q0,0,Z0) = (q1,0Z0)
+(q1,0,0)  = (q1,00)
+(q1,1,0)  = (q2,e)
+(q2,1,0)  = (q2,e)
+Final State q2
+
+### 9.2. {0^n1^m | n,m € N, n <= m}
+(q0,0,Z0) = (q1,0Z0)
+(q1,0,0)  = (q1,00)
+(q1,1,0)  = (q2,e)
+(q2,1,0)  = (q2,e)
+(q2,1,Z0) = (q2,Z0)
+Final State q2
+
+### 9.3. {0^n1^m | n,m € N, n >= m
+(q0,0,Z0) = (q1,0Z0)
+(q1,0,0)  = (q1,00)
+(q1,1,0)  = (q2,e)
+(q2,1,0)  = (q2,e)
+(q2,1,Z0) = (q2,Z0)
+Final State {q1,q2}
+
+### 9.4. {x € {0,1}* | |x|0 = 2*|x|1}
+
+### 9.5. {c^n(ba)^m | n,m € N, n > m}
+
+## Ejercicio 10
+
+### 10.1. {w€ {a,b} | |w| impar y la primera letra coincide con la central}
+
+### 10.2. {a(^m)b(^n) | m,n € N, n <= m <= 2n}
+L = {a(^m)b(^n) | m,n € N, n <= m} U {a(^m)b(^n) | m,n € N, m <= 2n}
+
+### 10.3. {a(^m)b(^n)c(^p)d(^q) | m,n,p,q € N, m + n = p + q}
+(q0,a,Z0) = (q1,1Z0)
+(q1,a,1)  = (q1,11)
+(q1,b,1)  = (q2,11)
+(q2,b,1)  = (q2,11)
+(q2,c,1)  = (q3,e)
+(q3,c,1)  = (q3,e)
+(q3,d,1)  = (q4,e)
+(q4,d,1)  = (q4,e)
+(q4,d,Z0) = (q4,e)
+Final State q4
+    Lf(M) = L€(M) = L
+    
+### 10.4. {a(^i)b(^j)c(^k) | i,j,k € N, i != j}
+Vemos que L = {a(^i)b(^j)c(^k)| i,j,k € N, i > j} U(disjunta) {a(^i)b(^j)c(^k)| i,j,k € N, i < j}
+El camino de i > j es {q0,q1,q2}.
+El camino de i < j es {q0,q3,q4}.
+
+(q0,a,Z0) = (q1,NZ0)
+(q0,b,Z0) = (q3,NZ0)
+(q1,a,_)  = (q1,A_)
+(q1,b,A)  = (q2,e)
+(q1,b,N)  = (q0,e)
+(q2,b,A)  = (q2,e)
+(q2,b,N)  = (q0,e)
+(q2,a,_)  = (q2,A_)
+(q3,b,_)  = (q3,B_)
+(q3,a,B)  = (q4,e)
+(q3,a,N)  = (q0,e)
+(q4,a,B)  = (q4,e)
+(q4,a,N)  = (q0,e)
+(q4,b,_)  = (q4,B_)
+    Final State {q1,q2,q3,q4}
+    N is used to indicate i = j
+    
+### 10.5. {a(^i)b(^j)c(^k) | i,j,k € N, i != j o j != k}
+Vemos que L = {a(^i)b(^j)c(^k)| i,j,k € N, i != j} U {a(^i)b(^j)c(^k) | i,j,k € N, j != k}
+
+### 10.6. {a(^n)b(^m)c(^n+m) | n,m € N}
+Símbolos de pila:
+    A : apilando as y bs
+(q0,a,Z0) = (q1,AZ0)
+(q0,b,Z0) = (q2,AZ0)
+(q1,a,A)  = (q1,AA)
+(q1,b,A)  = (q2,AA)
+(q2,b,A)  = (q2,AA)
+(q2,c,A)  = (q4,e)
+(q3,c,A)  = (q4,A)  /* En este paso no desapilo: leo dos c's y desapilo 1 (q2) */
+(q3,c,Z0) = (q4,Z0)
+(q4,c,Z0) = (q3,e)  /* Si aceptamos por pila vacía, aquí |x|c = 2*(|x|a + |x|b) */
+(q4,c,A)  = (q3,e)
+    Final State {q0,q3}
+    
+### 10.7. {a(^i)b(^j)c(^k) | i,j,k € N, i = 2j o j = 2k}
+L = {a(^i)b(^j)c(^k) | i,j,k € N, i = 2j} U {a(^i)b(^j)c(^k) | i,j,k € N, j = 2k}
