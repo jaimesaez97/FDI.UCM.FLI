@@ -4,8 +4,9 @@
 Cadenas de aes seguidas de bes (incluyendo la vacía) con un número de `a`s entre el número de `b`s y el doble.
 
 Ideas:
-    - |w|a <= 2*|w|b
-    - |w|b <= |w|a
+- |w|a <= 2*|w|b
+
+- |w|b <= |w|a
 
 ### 1.1. AP:
 - Al llegar a Q3, se sabe el número de `a` apilados = `n`.
@@ -20,17 +21,27 @@ Probamos a partirlo:
 L:
 
 (q0,a,Z0) = (q1,AZ0)
+
 (q1,a,A)  = (q1,AA)
+
 (q1,b,A)  = (q1,e)
+
 (q2,b,A)  = (q2,e)
 
 L':
+
 (q0,a,Z0) = (q1,AZ0)
+
 (q1,a,A)  = (q2,A)
+
 (q1,b,A)  = (q3,e)
+
 (q2,a,A)  = (q1,AA)
+
 (q2,b,A)  = (q3,e)
+
 (q3,b,A)  = (q3,e)
+
     Final State q3
     
 ==> Creo que aquí se necesita NO DETERMINISMO : ¿cómo sabes a cuál de los dos lenguajes pertenece para apilar más o menos as?
@@ -60,21 +71,27 @@ Si hacemos el árbol de derivación para cualquier cadena podemos asegurar que e
 L2 representa al lenguaje que reconoce las cadenas de ceros y unos con exactamente el doble de ceros que de unos.
 
 ### 2.1. AP:
-    - AQUÍ ESTÁ EL NO DETERMINISMO
+- AQUÍ ESTÁ EL NO DETERMINISMO
 
 Idea:
-    - Saber siempre qué ha pasado en ele stado anterior.
-    01 : desapilo ese cero
-    00 : apilo un cero
-    10 : apilo uno y lo desapilo con el cero
-    11 : apilo dos unos
+- Saber siempre qué ha pasado en ele stado anterior.
+01 : desapilo ese cero
+
+00 : apilo un cero
+
+10 : apilo uno y lo desapilo con el cero
+
+11 : apilo dos unos
     
 ### 2.2. GIC:
 
 #### 2.2.1. Definición formal
 S -> 0T0  | 0U1   | 1U0  | 1V1 | e | 
+
 T -> 1S   | 0TT0  | S1          (recuperar 1 1)
+
 U -> 1UU0 | 0UU1  | 0S          (recuperar 1 0)
+
 V -> 1VV1 | 10000 | 01000 | 00100 | 00010 | 00001        <- AMBIGUEDAD (S puede vacio => 0000e == 000e0)
 
 #### 2.2.2. Explicación diseño
@@ -116,11 +133,17 @@ L3 representa el lenguaje que reconoce las cadenas que empiezan por un número d
 ### 3.1. AP:
 Suponemos un APD M ,, Lf(M) = L3 (reconoce por estado final).
 ->(q0,c,Z0) = (q1,Z0)     
+
 (q1,c,Z0) = (q2,CZ0)    Q1 : reconoce solo la primera c de la cadena Y NO LA APILA
+
 (q2,c,C)  = (q2,CC)     Q2 : reconoce solo LA SEGUNDA c de la cadena Y LA APILA
+
 (q2,b,C)  = (q3,C)       
+
 (q3,a,C)  = (q4,e)      Q3 : reconoce una B (después de las Cs) y no desapila nada
+
 (q4,b,C)  = (q3,C)      Q4 : reconoce una A después de la B y DESAPILA LA C
+
     Final State {q1,q2,q4}
 
 Como se puede ver es determinista ya que no existe ninguna transición en la que se permita determinismo (que haya que elegir entre dos posibles estados a los que lleva la transición).
@@ -129,6 +152,7 @@ Como se puede ver es determinista ya que no existe ninguna transición en la que
 #### 3.2.1. Definición formal
 
 S -> cSB | cB
+
 B -> ba  | e
 
 #### 3.2.2. Explicación diseño
