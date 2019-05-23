@@ -1,0 +1,67 @@
+# Fundamentos de los Lenguajes Informáticos
+## Examen Junio 2018
+
+### 1. [2,5 puntos]
+
+L1.1 = {1^j0^k € {0,1}* | j >= 0 ^ k = (j mod 3)}
+L1.2 = {1^j0^k € {0,1}* | j >= 0 ^ k = (j div 3)}
+
+L1.1 reconoce a las cadenas de un número natural de 1s seguido de un número natural de 0s que es el resto de dividir el número de 1s entre tres.
+Ej: 10, 1100, 111, 1110, 111100, 1111000...
+
+En este lenguaje hay tres opciones: 
+	- Cadena con 1 0.
+	- Cadena con 2 0s.
+	- Cadena sin 0s.
+Es un lenguaje regular porque no depende de todo el número de unos, sino de una acotación del resto de número de 1s al dividirlo entre tres.
+
+L1.2 reconoce a las cadenas de un número natural de 1s seguido de un número natural de 0s que es exactamente el número de 1s dividido entre 3.
+EJ: 1, 11, 1110, 11110, 111110, 11111100...
+
+Este lenguaje es claramente dependiente del contexto porque dependiendo del número de unos que escribamos habrá que escribir un número de 0s, sin acotación.
+
+a)
+APD M,, L(M) = L1.1
+(q0,0) = q1
+(q0,1) = q5
+(q1,0) = q2
+(q1,1) = q3
+(q2,0) = q4
+(q2,1) = q0
+(q3,0) = q5
+(q3,1) = q5
+(q4,0) = q3
+(q4,1) = q5
+(q5,_) = q5	/*TrapState*/
+	Final State q0, q3
+
+ER(L1.1) = ((111)*(€ + 10 + 1100))
+
+b)
+Sea x € L1.2 ^ |x| >= n
+
+x = 1^n0^(n/3)
+
+P.t. u,v,w : x = uvw ^ 1 <= |v| <= |uv| <= n
+	uv = 0^s 1 <= s <= n
+	v  = 0^j 1 <= j <= s <= n
+
+->
+
+Ex. i >= 0 : x = uv^iw !€ L1.2
+
+i = 0 => uv^0w = uw
+	1^(n-j)0^(n/3) !€ L1.2
+	
+Habíamos elegido n/3 truncado porque de esta forma si n = 3 y quito j = 1, la cadena debería quedarse sin 0s y no es loq ue ocurre:
+	x = 1110 	(n = 3, n/3 = 1)
+	x = 110		(n = 2, n/3 != 1)
+	
+### 2. [2,5 puntos]
+
+L2 = { a^nb^mc^p | m > n + p, siendo n,m,p > 0 }
+
+Creo que este lenguaje es LIC porque se me ocurre un autómata de pila que vaya leyendo símbolos y no reconozca si m <= n + p.
+
+
+¿Cómo se quita el determinismo en este lenguaje? (hecho ultima hoja FLI)
