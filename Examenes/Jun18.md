@@ -63,5 +63,32 @@ L2 = { a^nb^mc^p | m > n + p, siendo n,m,p > 0 }
 
 Creo que este lenguaje es LIC porque se me ocurre un autómata de pila que vaya leyendo símbolos y no reconozca si m <= n + p.
 
+AP M,, Lf(M) = L2
 
-¿Cómo se quita el determinismo en este lenguaje? (hecho ultima hoja FLI)
+La idea para este autómata es la siguiente:
+	- Apilar un número de As en la pila.
+	- En cuanto entra la primera B cambio al estado de desapilar y quito todas las As.
+		- Cuando salgo de este estado n = m y en la pila está Z0.
+	- La primera B QUE SOBRA (m > n) no la guardo en la pila.
+	- Sigo apilando Bs hasta que me aparezca una C.
+	- En el último estado sigo apilando Cs MIENTRAS ME QUEDEN Bs EN LA PILA.
+	
+(q0,a,Z0) = (q1,AZ0)
+(q0,b,Z0) = (q3,Z0) /*No apilo 1ª b sobrante*/
+(q1,a,A)  = (q1,AA)
+(q1,b,A)  = (q2,€)	
+(q2,b,A)  = (q2,€)
+(q2,b,Z0) = (q3,Z0)	/*No apilo 1ª b sobrante*/
+(q3,b,B)  = (q3,Z0)
+(q3,b,Z0) = (q3,BZ0)
+(q3,c,B)  = (q4,€)
+(q4,c,B)  = (q4,€)
+	Final State q4
+	
+GIC
+	S -> ABbC
+	A -> aABb | €
+	B -> bB | €
+	C -> bBCc | €
+	
+### 3. []

@@ -67,7 +67,9 @@ Hay que construir un APD que se base en el del lenguaje {a^nb^n} pero que no rec
 	Final State q8
 
 GIC:
-		PEDIR
+G = ({S}, {a,b}, S, 'producciones de abajo')
+
+S -> ab | aabb | aaaSbbb
 		
 ### 3. [2 puntos]
 
