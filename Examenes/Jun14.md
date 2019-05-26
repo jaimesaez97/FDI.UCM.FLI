@@ -66,3 +66,7 @@ AP M,, Lf(M) = L2
 (q5,a,A)  = (q6,€)
 (q6,a,A)  = (q6,€)
 	Final State {q0, q2, q6}
+
+
+### Ejercicio 3. [2 puntos]
+
