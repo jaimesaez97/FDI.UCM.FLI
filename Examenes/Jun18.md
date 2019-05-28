@@ -23,17 +23,28 @@ Este lenguaje es claramente dependiente del contexto porque dependiendo del núm
 a)
 APD M,, L(M) = L1.1
 (q0,0) = q1
+
 (q0,1) = q5
+
 (q1,0) = q2
+
 (q1,1) = q3
+
 (q2,0) = q4
+
 (q2,1) = q0
+
 (q3,0) = q5
+
 (q3,1) = q5
+
 (q4,0) = q3
+
 (q4,1) = q5
+
 (q5,_) = q5	/*TrapState*/
-	Final State q0, q3
+
+Final State q0, q3
 
 ER(L1.1) = ((111)*(€ + 10 + 1100))
 
@@ -74,16 +85,26 @@ La idea para este autómata es la siguiente:
 	- En el último estado sigo apilando Cs MIENTRAS ME QUEDEN Bs EN LA PILA.
 	
 (q0,a,Z0) = (q1,AZ0)
+
 (q0,b,Z0) = (q3,Z0) /*No apilo 1ª b sobrante*/
+
 (q1,a,A)  = (q1,AA)
+
 (q1,b,A)  = (q2,€)	
+
 (q2,b,A)  = (q2,€)
+
 (q2,b,Z0) = (q3,Z0)	/*No apilo 1ª b sobrante*/
+
 (q3,b,B)  = (q3,Z0)
+
 (q3,b,Z0) = (q3,BZ0)
+
 (q3,c,B)  = (q4,€)
+
 (q4,c,B)  = (q4,€)
-	Final State q4
+
+Final State q4
 	
 GIC
 	S -> ABbC
@@ -105,3 +126,45 @@ La primera idea que he pensado para este lenguaje es empezar por la izquierda:
 			- He terminado.
 		- ¿No? 
 			- Voy al final derecho de la cadena, borro el primer símbolo y vuelvo a empezar.
+
+(q0,a,a) = (q0,->)
+
+(q0,b,b) = (q0,->)
+
+(q0,#,#) = (q1,<-)
+
+(q1,a,#) = (q2,<-)
+
+(q2,a,a) = (q3,<-)
+
+(q2,b,b) = (q3,<-)
+
+(q3,#,#) = (qF,N)
+
+(q3,a,a) = (q4,<-)
+
+(q3,b,b) = (q4,<-)
+
+(q4,a,a) = (q4,<-)
+
+(q4,b,b) = (q4,<-)
+
+(q4,#,#) = (q5,->)
+
+(q5,a,#) = (q6,->)
+
+(q5,b,#) = (q6,->)
+
+(q6,a,a) = (q6,->)
+
+(q6,b,b) = (q6,->)
+
+(q6,#,#) = (q1,<-)
+
+(q1,b,b) = (qT,N)
+
+Trap State qT
+
+Final State qF
+
+
