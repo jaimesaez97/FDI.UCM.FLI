@@ -77,4 +77,39 @@ L4 = { w1cw2 | w1,w2 € {a,b}* con w1 != w2 }
 
 Máquina de Turing que DECIDA.
 
-Hemos pensado en desarrollar una MT que 
+Idea:
+	- Recorrer la cadena de derecha a izquierda y ver si el primer símbolo que se lee coincide con el primero después de leer una c.
+
+Casos Límite:
+	- w1 subcadena de w2 (comprobado en q8)
+	- w2 subcadena de w1 (comprobado en q2,q5 si llega blanco)
+	- #c# (comprobado en q6)
+	
+(q0,a,0) = (q1,->)
+(q0,#,#) = (q6,->)
+(q0,c,c) = (q8,->)	/* q8: Comprueba caso en que w1 sea subcadena de w2 */
+(q1,a,a) = (q1,->)	
+(q1,b,b) = (q1,->)
+(q1,c,c) = (q2,->)	/* Muevo cursor a la derecha de la C */
+(q2,*,*) = (q2,->)	/* Me salto las letras que coinciden y he tapado */
+(q2,a,*) = (q3,->)	/* Símbolos coincidentes: marco y a vuelvo a empezar */
+(q2,b,b) = (qF,N)
+(q2,#,#) = (qF,N)	/* Si me encuentro aquí un blanco es el caso en que w2 es subcadena de w1 (f.e. ababcaba)  */
+(q3,a,a) = (q3,<-)	/* q3 se encarga de volver a la primera posición a la derecha del último 0 marcado */
+(q3,b,b) = (q3,<-)
+(q3,c,c) = (q3,<-)
+(q3,*,*) = (q3,<-)
+(q3,0,0) = (q0,->)	/*Vuelvo a la izquierda*/
+(q4,a,a) = (q4,->)
+(q4,b,b) = (q4,->)
+(q4,c,c) = (q5,->)
+(q5,*,*) = (q5,->)
+(q5,a,a) = (qF,N)
+(q5,b,*) = (q3,<-)
+(q5,#,#) = (qF,N)	/* Si me encuentro aquí un blanco es el caso en que w2 es subcadena de w1 (f.e. bababcbaba)  */
+(q6,c,c) = (q7,->)	/*q6,q7 sirven para reconocer #c# (caso extremo)*/
+(q7,#,#) = (qF,N)
+(q8,*,*) = (q8,->)	/* Leo toda la subcadena de w2 que coincide con w1 */
+(q8,a,a) = (qF,N)	/* Si me encuentro algún símbolo, reconozco */
+(q8,b,b) = (qF,N)
+	Final State {qF}
