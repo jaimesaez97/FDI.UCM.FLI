@@ -70,3 +70,44 @@ AP M,, Lf(M) = L2
 
 ### Ejercicio 3. [2 puntos]
 
+Se pide una Máquina de Turing que "divida entre 2":
+
+q0315 => qF157 ∗ 1
+q0014 => qF007 ∗ 0
+
+Idea:
+	- Recorrer los números de IZQUIERDA A DERECHA:
+		- Si entra número PAR poner división exacta y seguir con el siguiente.
+		- Si entra número IMPAR poner división exacta y pasar a estado de ACARREO.
+
+// Transiciones de operación en NO ACARREO
+(q0,0,0) = (q0,->)
+(q0,1,0) = (q1,->)
+(q0,2,1) = (q0,->)
+(q0,3,1) = (q1,->)
+(q0,4,2) = (q0,->)
+(q0,5,2) = (q1,->)
+(q0,6,3) = (q0,->)
+(q0,7,3) = (q1,->)
+(q0,8,4) = (q0,->)
+(q0,9,4) = (q1,->)
+// Transiciones de operación en ACARREO
+(q1,0,5) = (q0,->)
+(q1,1,5) = (q1,->)
+(q1,2,6) = (q0,->)
+(q1,3,6) = (q1,->)
+(q1,4,7) = (q0,->)
+(q1,5,7) = (q1,->)
+(q1,6,8) = (q0,->)
+(q1,7,8) = (q1,->)
+(q1,8,9) = (q0,->)
+(q1,9,9) = (q1,->)
+// Transiciones de ESCRITURA RESTO PAR
+(q0,#,*) = (q2,->)
+(q2,_,0) = (q4,<-)
+// Transiciones de ESCRITURA RESTO IMPAR
+(q1,#,*) = (q3,->)
+(q3,#,1) = (q4,<-)
+// Transiciones de PRESENTACIÓN SALIDA
+(q4,_,_) = (q4,<-)	// _ representa todo menos #
+(q4,#,#) = (qF,->)

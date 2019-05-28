@@ -91,4 +91,17 @@ GIC
 	B -> bB | €
 	C -> bBCc | €
 	
-### 3. []
+### 3. [1,5 puntos]
+
+Pide señalar *qué significa decidir un lenguaje* y construir una MT que *decida* L sobre el alfabeto {a,b}*.
+
+L = { wa^(|w|a) | w € {a,b}* }
+
+Decidir un lenguaje es una máquina de Turing que siempre para; es decir, para las cadenas que reconoce el lenguaje para en estado de aceptación y para las que no para en otro estado.
+
+La primera idea que he pensado para este lenguaje es empezar por la izquierda:
+	- Por cada A que me encuentre la borro y compruebo:
+		- Si borro el primer símbolo que me encuentro, ¿a la izquierda hay un blanco? (Cadena de longitud 1)
+			- He terminado.
+		- ¿No? 
+			- Voy al final derecho de la cadena, borro el primer símbolo y vuelvo a empezar.
